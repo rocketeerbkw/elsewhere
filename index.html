@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f4ed" />
+    <meta name="description" content="Pick up your road trip and put it somewhere else. Compare your route across Europe or anywhere on Earth, at its real scale." />
+    <title>Elsewhere — your road trip, somewhere else</title>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Elsewhere home"><span class="brand-icon">↗</span> elsewhere<span class="brand-period">.</span></a>
+      <span class="tagline">A little change of perspective.</span>
+      <button class="quiet" id="about-button">How it works <span aria-hidden="true">↗</span></button>
+    </header>
+    <main>
+      <aside class="sidebar">
+        <div class="intro"><span class="eyebrow">SAME TRIP. DIFFERENT WORLD.</span><h1>You went <br/>how far<span>?</span></h1><p>Take the roads you traveled. <br/>See where they'd take you elsewhere.</p></div>
+        <form id="route-form">
+          <div class="section-heading"><h2>Your road trip</h2><button type="button" class="text-button" id="demo">Try an example ↗</button></div>
+          <div id="stops"></div>
+          <button type="button" class="add-stop" id="add-stop">＋ Add a stop</button>
+          <button class="primary" id="build" type="submit">Map my trip <span>→</span></button>
+        </form>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <section class="trip-summary" aria-label="Original trip">
+          <div class="section-heading"><span class="eyebrow">BACK HOME</span><span class="route-key">Your original route</span></div>
+          <div id="original-map" aria-label="Map of original driving route"></div>
+          <div class="stats"><div><strong id="distance">—</strong><span id="distance-unit">miles of road</span></div><div><strong id="duration">—</strong><span>behind the wheel</span></div><button id="units" class="unit-button" aria-label="Switch distance units">mi / km</button></div>
+        </section>
+        <div class="sidebar-footer"><span class="small-globe">◎</span><p>The world feels different<br/>when you bring your own ruler.</p></div>
+      </aside>
+      <section class="map-stage" aria-label="Route comparison">
+        <div id="comparison-map" aria-label="Interactive map. Drag the orange route to move it."></div>
+        <div class="map-top"><div class="destination-card"><span class="eyebrow">LET'S PUT THAT IN</span><div class="destinations"><button data-place="europe" class="selected">Europe</button><button data-place="asia">Asia</button><button data-place="australia">Australia</button><button data-place="home">Back home</button></div><div class="style-picker"><label for="map-style">Map style</label><select id="map-style"><option value="light">Light</option><option value="dark">Dark</option><option value="streets">Street map</option></select></div></div><button class="map-button" id="fit" title="Fit route in view" aria-label="Fit route in view">⌖</button></div>
+        <div class="comparison-caption"><span class="caption-kicker">YOUR TRIP, ELSEWHERE</span><h2 id="map-title">An American road trip.<br/>A European perspective.</h2><p id="map-subtitle">The same roads. Every mile accounted for.</p></div>
+        <div class="map-bottom">
+          <div class="manipulation-card"><div class="drag-hint"><span class="move-icon">✥</span><div><strong>Pick it up. Put it anywhere.</strong><span>Drag the orange route to move it.</span></div></div><div class="rotation"><label for="rotation">Rotate the trip <output id="angle">0°</output></label><div class="rotation-controls"><span aria-hidden="true">↶</span><input id="rotation" type="range" min="-180" max="180" value="0" step="1"/><span aria-hidden="true">↷</span><button id="reset" title="Reset position and rotation" aria-label="Reset position and rotation">↺</button></div></div></div>
+          <div class="map-actions"><button class="share-button" id="share">Copy share link <span>↗</span></button><button class="quiet export-button" id="export">Save trip file ↓</button><label class="quiet import-button" for="import">Open trip file ↑<input type="file" id="import" accept=".json,application/json" hidden/></label></div>
+        </div>
+        <div class="scale-note"><span></span> Actual distance preserved</div>
+      </section>
+    </main>
+    <dialog id="about"><button class="close-dialog" aria-label="Close explanation">×</button><span class="eyebrow">A ROAD TRIP WITH SOME PERSPECTIVE</span><h2>Your miles travel well.</h2><p>Enter your start, finish, and any stops along the way. We find a driving route, then let you pick up the whole thing and lay it over another part of the world.</p><p>Drag the orange line to move it. Use the rotation slider to turn it. The route rotates as one piece on a spherical Earth, preserving its distances and bends. Its appearance changes with the map projection, just like The True Size.</p><p>The orange line is a comparison overlay. It won't follow the roads in its new location. Add stops to make the original route match your trip more closely.</p><p>Save a trip file to keep the exact route. Share links contain your stops and placement, and calculate the route again when opened.</p><p class="service-note">Maps © OpenStreetMap contributors · Driving routes by OSRM · Place search by Nominatim. These public services need an internet connection and may occasionally be unavailable.</p></dialog>
+    <div id="toast" role="status"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
