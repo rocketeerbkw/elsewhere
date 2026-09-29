@@ -1,0 +1,14 @@
+x-lagoon-project: elsewhere
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_GEOCODER_URL: ${VITE_GEOCODER_URL:-}
+        VITE_ROUTER_URL: ${VITE_ROUTER_URL:-}
+    labels:
+      lagoon.type: nginx
+    ports:
+      - "127.0.0.1:${ELSEWHERE_PORT:-8080}:8080"
